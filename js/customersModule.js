@@ -57,8 +57,8 @@ module.exports.getCustomer = phone => {
 
 // delete customer (D)
 
-// module.exports.deleteCustomer = () => {
-//     return new Promise((resolve, reject) => {
-//         db.run()
-//     })
-// }
+module.exports.deleteCustomer = () => {
+    return new Promise((resolve, reject) => {
+        db.run()
+    })
+}
