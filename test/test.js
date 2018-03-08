@@ -1,37 +1,75 @@
-const { createTables } = require('../js/makeTable');
-const { getCustomers, addCustomer } = require('../js/customersModule');
-const { assert: {equal, isFunction, isObject, isArray} } = require('chai');
+const { createTables } = require("../js/makeTable");
 
-describe('just a test', () => {
-    it('should be equal', () => {
-        equal(3, 1+2);
+const {
+  getCustomers,
+  getCustomer,
+  addCustomer,
+  deleteCustomer
+} = require("../js/customersModule");
+
+const {
+  assert: { equal, isFunction, isObject, isArray, deepEqual }
+} = require("chai");
+
+describe("customers module", () => {
+  describe("getCustomers", () => {
+    it("should be a function", () => {
+      isFunction(getCustomers);
     });
-});
+    it("should return an array of objects", () => {
+      isArray(getCustomers());
+      isObject(getCustomers()[0]);
+    });
+  });
 
+  describe("adding a customer", () => {
+    let newCust = {
+      firstName: "Pat",
+      lastName: "Smith",
+      city: "Nowhere",
+      street: "IDK St",
+      state: "Alabama",
+      zip: "22288",
+      phone: "555-555-5555"
+    };
+    beforeEach(done => {
+      createTables().then(() => {
+        done();
+      });
+    });
+    it("should return an object", () => {
+      return addCustomer(newCust).then(data => {
+        isObject(data);
+      });
+    });
+    it("should add a new customer to the db", () => {
+      return addCustomer(newCust).then(obj => {
+        equal(9, obj.id);
+      });
+    });
+  });
 
-describe('customers module', () => {
-    describe('getCustomers', () => {
-        it('should be a function', () => {
-            isFunction(getCustomers);
+  describe("get a customer", () => {
+    it("should be a function", () => {
+      isFunction(getCustomer);
+    });
+    it("should return one customer's data", () => {
+      getCustomer("555-555-5555")
+        .then(customer => {
+          deepEqual(customer, customer);
+        })
+        .catch(err => {
+          console.log("error getting a customer", err);
         });
-        it('should return an array of objects', () => {
-            isArray(getCustomers());
-        })
     });
-    describe("adding a customer", () => {
-        beforeEach( (done) => {
-            createTables()
-            .then( () => {
-                done();
-            })
-        })
-        it('should return an object', () => {
-            return addCustomer()
-            .then( (data) => {
-                isObject(data);
-            })
-        })
+  });
 
-    })
+  describe('delete a customer', () => {
+      it('should be a function', () => {
+          isFunction(deleteCustomer);
+      })
+      it('should delete one customer', () => {
+          
+      })
+  })
 });
-
