@@ -17,6 +17,7 @@
     "test": "mocha -R nyan --watch"
   },
   "dependencies": {
-    "mochi": "^0.3.0"
+    "mochi": "^0.3.0",
+    "sqlite3": "^3.1.13"
   }
 }
