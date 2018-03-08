@@ -18,7 +18,7 @@ module.exports.createTables = () => {
         return new Promise( (resolve, reject) => {
             db.run(`INSERT INTO customers VALUES (null, "${firstName}", "${lastName}", "${city}", "${street}", "${state}", "${zip}", "${phone}")`, function(err) {
                 if (err) return reject(err);
-                resolve(this.lastId);
+                resolve(this.lastID);
             });
         });
     }));

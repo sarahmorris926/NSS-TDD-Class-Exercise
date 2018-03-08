@@ -14,7 +14,7 @@
     "mocha": "^3.5.3"
   },
   "scripts": {
-    "test": "mocha -R nyan --watch"
+    "test": "mocha -R spec --watch"
   },
   "dependencies": {
     "mochi": "^0.3.0",
