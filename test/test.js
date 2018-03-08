@@ -78,6 +78,7 @@ describe("customers module", () => {
             zip: "77777",
             phone: "777-777-7777"
           };
+        
         return deleteCustomer(custToDelete)
         .then()
       })
