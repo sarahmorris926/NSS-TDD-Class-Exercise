@@ -1,0 +1,22 @@
+{
+  "name": "node-tdd-class-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "db.js",
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [],
+  "author": "Sarah Morris",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.5.3"
+  },
+  "scripts": {
+    "test": "mocha -R nyan --watch"
+  },
+  "dependencies": {
+    "mochi": "^0.3.0"
+  }
+}
