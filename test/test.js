@@ -69,7 +69,17 @@ describe("customers module", () => {
           isFunction(deleteCustomer);
       })
       it('should delete one customer', () => {
-          
+        let custToDelete = {
+            firstName: "Daniel",
+            lastName: "Delete",
+            city: "Abyss",
+            street: "Nowhere Street",
+            state: "Texas",
+            zip: "77777",
+            phone: "777-777-7777"
+          };
+        return deleteCustomer(custToDelete)
+        .then()
       })
   })
 });
